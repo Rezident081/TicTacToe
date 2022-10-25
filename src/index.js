@@ -3,7 +3,7 @@ class Playground{
         this.main = document.getElementById('playground');
         this.replayButton = document.getElementById('restart');
         this.winnerRef = document.getElementsByClassName('winner')[0];
-        this.board = [['','',''], ['','',''], ['','','']];
+        this.board = Array(3).fill().map(()=>Array(3).fill(''));
         this.players = [];
         this.activePlayer = null;
         this.winner = null;
@@ -127,11 +127,20 @@ class Playground{
         this.main.classList.add('game-over');
     }
 
+    setWinCombination(combination){
+        this.main.setAttribute('data-win-combination', combination);
+    }
+
+    removeWinCombination(){
+        this.main.removeAttribute('data-win-combination');
+    }
+
     checkWinner(){
         for (let i = 0, len = this.board.length; i < len; i++) {
             const row = this.board[i];
             if (row.every((cell) => cell === this.activePlayer.symbol)) {
                 this.setWinner(this.activePlayer);
+                this.setWinCombination(`row-${i}`)
                 Playground.selectRowActive(i);
                 return;
             }
@@ -141,6 +150,7 @@ class Playground{
             const column = this.board.map((row) => row[i]);
             if (column.every((cell) => cell === this.activePlayer.symbol)) {
                 this.setWinner(this.activePlayer);
+                this.setWinCombination(`column-${i}`)
                 Playground.selectColumnActive(i);
                 return;
             } 
@@ -151,10 +161,12 @@ class Playground{
         
         if (diagonal1.every((cell) => cell === this.activePlayer.symbol)) {
             this.setWinner(this.activePlayer);
+            this.setWinCombination(`diagonal-1`)
             Playground.selectDiagonalActive([0,4,8]);
             return;
         } else if (diagonal2.every((cell) => cell === this.activePlayer.symbol)) {
             this.setWinner(this.activePlayer);
+            this.setWinCombination(`diagonal-2`)
             Playground.selectDiagonalActive([2,4,6]);
             return;
         }
@@ -175,9 +187,10 @@ class Playground{
             this.winnerRef.innerHTML = null;
             this.winner = null;
             this.isGameOver = false;
-            this.board = [['','',''], ['','',''], ['','','']];
+            this.board = Array(3).fill().map(()=>Array(3).fill(''));
     
             this.main.classList.remove('game-over');
+            this.removeWinCombination();
     
             this.start();
         }

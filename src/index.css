@@ -28,6 +28,7 @@
     height: 100px;
     z-index: 2;
     cursor: pointer;
+    outline: 1px solid #fff;
     transition: all 0.5s;
 }
 
@@ -143,4 +144,79 @@
 #playground .item.hover-item-x:before,
 #playground.game-over .item:not(.item-active):before {
     opacity: 0.2;
+}
+
+#playground::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    background: #000;
+}
+
+#playground[data-win-combination="row-0"]::before{
+    width: 120%;
+    height: 3px;
+    left: -10%;
+    top: 16%;
+    transition: 1s width;
+}
+
+#playground[data-win-combination="row-1"]::before{
+    width: 120%;
+    height: 3px;
+    left: -10%;
+    top: 50%;
+    transition: 1s width;
+}
+
+#playground[data-win-combination="row-2"]::before{
+    width: 120%;
+    height: 3px;
+    left: -10%;
+    top: 84%;
+    transition: 1s width;
+}
+
+#playground[data-win-combination="column-0"]::before{
+    width: 3px;
+    height: 120%;
+    left: 16%;
+    top: -10%;
+    transition: 1s height;
+}
+
+#playground[data-win-combination="column-1"]::before{
+    width: 3px;
+    height: 120%;
+    left: 50%;
+    top: -10%;
+    transition: 1s height;
+}
+
+#playground[data-win-combination="column-2"]::before{
+    width: 3px;
+    height: 120%;
+    left: 83%;
+    top: -10%;
+    transition: 1s height;
+}
+
+#playground[data-win-combination="diagonal-1"]::before{
+    width: 3px;
+    height: 150%;
+    left: 50%;
+    top: -24%;
+    transform: rotate(135deg);
+    transition: 1s width;
+}
+
+#playground[data-win-combination="diagonal-2"]::before{
+    width: 3px;
+    height: 150%;
+    left: 50%;
+    top: -24%;
+    transform: rotate(45deg);
+    transition: 1s width;
 }
