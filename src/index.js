@@ -1,11 +1,15 @@
 class Playground{
     constructor(){
-        this.main = document.getElementById('root');
+        this.main = document.getElementById('playground');
+        this.replayButton = document.getElementById('restart');
+        this.winnerRef = document.getElementsByClassName('winner')[0];
         this.board = [['','',''], ['','',''], ['','','']];
         this.players = [];
         this.activePlayer = null;
         this.winner = null;
         this.isGameOver = false;
+
+        this.replayButton.addEventListener('click', this.restart.bind(this))
     }
 
     initPlayers(player1, player2){
@@ -118,6 +122,7 @@ class Playground{
     setWinner(player){
         this.winner = player;
         this.isGameOver = true;
+        this.winnerRef.innerHTML = player ? `The winner is: ${player.name}, symbol - ${player.symbol}` : 'Draw';
 
         this.main.classList.add('game-over');
     }
@@ -155,7 +160,7 @@ class Playground{
         }
 
         if (this.board.flat().every((cell) => cell !== "")) {
-            console.log('draw');
+            this.setWinner(null);
             return;
         }
     }
@@ -163,16 +168,32 @@ class Playground{
     start(){
         this.generateBoard();
     }
+
+    restart(){
+        if(this.isGameOver){
+            this.main.innerHTML = null;
+            this.winnerRef.innerHTML = null;
+            this.winner = null;
+            this.isGameOver = false;
+            this.board = [['','',''], ['','',''], ['','','']];
+    
+            this.main.classList.remove('game-over');
+    
+            this.start();
+        }
+
+    }
 }
 
 class Player{
-    constructor(symbol){
+    constructor({symbol, name}){
         this.symbol = symbol;
+        this.name = name;
     }
 }
 
 const game = new Playground();
-game.initPlayers(new Player('X'), new Player('O'));
+game.initPlayers(new Player({symbol: 'X', name: 'Max'}), new Player({symbol: 'O', name: 'Olga'}));
 game.start();
 
 

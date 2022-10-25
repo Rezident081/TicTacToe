@@ -1,4 +1,9 @@
 #root{
+    width: 100%;
+    height: 100%;
+}
+
+#playground{
     display: flex;
     position: absolute;
     max-width: 304px;
@@ -11,51 +16,104 @@
     right: 0;
 }
 
-#root .item{
+#playground ~ #restart{
+    display: none;
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#playground ~ #restart:hover{
+    outline: 1px solid #e3e3e3;
+}
+
+#playground ~ #restart:active{
+    background-color: #e3e3e3;
+}
+
+#playground ~ #restart:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    background-image: url('./images/replay-arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+#playground.game-over ~ #restart{
+    display: block;
+}
+
+#playground ~ .winner{
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 40px;
+}
+
+#playground.game-over ~ .winner{
+    display: block;
+}
+
+#playground .item{
     width: 100px;
     height: 100px;
     position: relative;
     cursor: pointer;
 }
 
-#root .item:nth-child(1){
+#playground .item:nth-child(1){
     border-right: 2px solid #000;
     border-bottom: 2px solid #000;
 }
 
-#root .item:nth-child(2){
+#playground .item:nth-child(2){
     border-bottom: 2px solid #000;
 }
 
-#root .item:nth-child(3){
+#playground .item:nth-child(3){
     border-left: 2px solid #000;
     border-bottom: 2px solid #000;
 }
 
-#root .item:nth-child(4){
+#playground .item:nth-child(4){
     border-bottom: 2px solid #000;
     border-right: 2px solid #000;
 }
 
-#root .item:nth-child(5){
+#playground .item:nth-child(5){
     border-bottom: 2px solid #000;
 }
 
-#root .item:nth-child(6){
+#playground .item:nth-child(6){
     border-bottom: 2px solid #000;
     border-left: 2px solid #000;
 }
 
-#root .item:nth-child(7){
+#playground .item:nth-child(7){
     border-right: 2px solid #000;
 }
 
-#root .item:nth-child(9){
+#playground .item:nth-child(9){
     border-left: 2px solid #000;
 }
 
-#root .item.item-x:before,
-#root .item.hover-item-x:before {
+#playground .item.item-x:before,
+#playground .item.hover-item-x:before {
     content: "";
     width: 100%;
     height: 100%;
@@ -67,8 +125,8 @@
     transition: 0.5s opacity;
 }
 
-#root .item.item-o:before,
-#root .item.hover-item-o:before {
+#playground .item.item-o:before,
+#playground .item.hover-item-o:before {
     content: "";
     width: 100%;
     height: 100%;
@@ -81,8 +139,8 @@
     transition: 0.5s opacity;
 }
 
-#root .item.hover-item-o:before,
-#root .item.hover-item-x:before,
-#root.game-over .item:not(.item-active):before {
+#playground .item.hover-item-o:before,
+#playground .item.hover-item-x:before,
+#playground.game-over .item:not(.item-active):before {
     opacity: 0.2;
 }
