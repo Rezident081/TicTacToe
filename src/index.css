@@ -1,222 +1,222 @@
-#root{
-    width: 100%;
-    height: 100%;
+#root {
+  width: 100%;
+  height: 100%;
 }
 
-#playground{
-    display: flex;
-    position: absolute;
-    max-width: 304px;
-    max-height: 300px;
-    flex-wrap: wrap;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: auto;
-    left: 0;
-    right: 0;
+#playground {
+  display: flex;
+  position: absolute;
+  max-width: 304px;
+  max-height: 300px;
+  flex-wrap: wrap;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
-#playground ~ #restart{
-    display: none;
-    position: absolute;
-    bottom: 150px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    z-index: 2;
-    cursor: pointer;
-    outline: 1px solid #fff;
-    transition: all 0.5s;
+#playground ~ #restart {
+  display: none;
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  cursor: pointer;
+  outline: 1px solid #fff;
+  transition: all 0.5s;
 }
 
-#playground ~ #restart:hover{
-    outline: 1px solid #e3e3e3;
+#playground ~ #restart:hover {
+  outline: 1px solid #e3e3e3;
 }
 
-#playground ~ #restart:active{
-    background-color: #e3e3e3;
+#playground ~ #restart:active {
+  background-color: #e3e3e3;
 }
 
-#playground ~ #restart:before{
-    content: "";
-    position: absolute;
-    left: 0;
-    background-image: url('./images/replay-arrow.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    width: 100%;
-    height: 100%;
+#playground ~ #restart:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background-image: url("./images/replay-arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  width: 100%;
+  height: 100%;
 }
 
-#playground.game-over ~ #restart{
-    display: block;
+#playground.game-over ~ #restart {
+  display: block;
 }
 
-#playground ~ .winner{
-    display: none;
-    position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 40px;
+#playground ~ .winner {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 40px;
 }
 
-#playground.game-over ~ .winner{
-    display: block;
+#playground.game-over ~ .winner {
+  display: block;
 }
 
-#playground .item{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    cursor: pointer;
+#playground .item {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
 }
 
-#playground .item:nth-child(1){
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
+#playground .item:nth-child(1) {
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
-#playground .item:nth-child(2){
-    border-bottom: 2px solid #000;
+#playground .item:nth-child(2) {
+  border-bottom: 2px solid #000;
 }
 
-#playground .item:nth-child(3){
-    border-left: 2px solid #000;
-    border-bottom: 2px solid #000;
+#playground .item:nth-child(3) {
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
-#playground .item:nth-child(4){
-    border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
+#playground .item:nth-child(4) {
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
 }
 
-#playground .item:nth-child(5){
-    border-bottom: 2px solid #000;
+#playground .item:nth-child(5) {
+  border-bottom: 2px solid #000;
 }
 
-#playground .item:nth-child(6){
-    border-bottom: 2px solid #000;
-    border-left: 2px solid #000;
+#playground .item:nth-child(6) {
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
 }
 
-#playground .item:nth-child(7){
-    border-right: 2px solid #000;
+#playground .item:nth-child(7) {
+  border-right: 2px solid #000;
 }
 
-#playground .item:nth-child(9){
-    border-left: 2px solid #000;
+#playground .item:nth-child(9) {
+  border-left: 2px solid #000;
 }
 
 #playground .item.item-x:before,
 #playground .item.hover-item-x:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-image: url('./images/close.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    transition: 0.5s opacity;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("./images/close.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  transition: 0.5s opacity;
 }
 
 #playground .item.item-o:before,
 #playground .item.hover-item-o:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-image: url('./images/circle.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    opacity: 1;
-    transition: 0.5s opacity;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("./images/circle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  opacity: 1;
+  transition: 0.5s opacity;
 }
 
 #playground .item.hover-item-o:before,
 #playground .item.hover-item-x:before,
 #playground.game-over .item:not(.item-active):before {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
-#playground::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 0px;
-    height: 0px;
-    background: #000;
+#playground::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  background: #000;
 }
 
-#playground[data-win-combination="row-0"]::before{
-    width: 120%;
-    height: 3px;
-    left: -10%;
-    top: 16%;
-    transition: 1s width;
+#playground[data-win-combination="row-0"]::before {
+  width: 120%;
+  height: 3px;
+  left: -10%;
+  top: 16%;
+  transition: 1s width;
 }
 
-#playground[data-win-combination="row-1"]::before{
-    width: 120%;
-    height: 3px;
-    left: -10%;
-    top: 50%;
-    transition: 1s width;
+#playground[data-win-combination="row-1"]::before {
+  width: 120%;
+  height: 3px;
+  left: -10%;
+  top: 50%;
+  transition: 1s width;
 }
 
-#playground[data-win-combination="row-2"]::before{
-    width: 120%;
-    height: 3px;
-    left: -10%;
-    top: 84%;
-    transition: 1s width;
+#playground[data-win-combination="row-2"]::before {
+  width: 120%;
+  height: 3px;
+  left: -10%;
+  top: 84%;
+  transition: 1s width;
 }
 
-#playground[data-win-combination="column-0"]::before{
-    width: 3px;
-    height: 120%;
-    left: 16%;
-    top: -10%;
-    transition: 1s height;
+#playground[data-win-combination="column-0"]::before {
+  width: 3px;
+  height: 120%;
+  left: 16%;
+  top: -10%;
+  transition: 1s height;
 }
 
-#playground[data-win-combination="column-1"]::before{
-    width: 3px;
-    height: 120%;
-    left: 50%;
-    top: -10%;
-    transition: 1s height;
+#playground[data-win-combination="column-1"]::before {
+  width: 3px;
+  height: 120%;
+  left: 50%;
+  top: -10%;
+  transition: 1s height;
 }
 
-#playground[data-win-combination="column-2"]::before{
-    width: 3px;
-    height: 120%;
-    left: 83%;
-    top: -10%;
-    transition: 1s height;
+#playground[data-win-combination="column-2"]::before {
+  width: 3px;
+  height: 120%;
+  left: 83%;
+  top: -10%;
+  transition: 1s height;
 }
 
-#playground[data-win-combination="diagonal-1"]::before{
-    width: 3px;
-    height: 150%;
-    left: 50%;
-    top: -24%;
-    transform: rotate(135deg);
-    transition: 1s width;
+#playground[data-win-combination="diagonal-1"]::before {
+  width: 3px;
+  height: 150%;
+  left: 50%;
+  top: -24%;
+  transform: rotate(135deg);
+  transition: 1s width;
 }
 
-#playground[data-win-combination="diagonal-2"]::before{
-    width: 3px;
-    height: 150%;
-    left: 50%;
-    top: -24%;
-    transform: rotate(45deg);
-    transition: 1s width;
+#playground[data-win-combination="diagonal-2"]::before {
+  width: 3px;
+  height: 150%;
+  left: 50%;
+  top: -24%;
+  transform: rotate(45deg);
+  transition: 1s width;
 }
